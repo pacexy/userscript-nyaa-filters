@@ -1,4 +1,9 @@
-import { GM_getValue, GM_setValue } from '$'
+import {
+  GM_deleteValue,
+  GM_getValue,
+  GM_registerMenuCommand,
+  GM_setValue,
+} from '$'
 import { filterFileSize } from './filters/file-size'
 import './main.css'
 
@@ -27,9 +32,13 @@ if (container) {
   update()
 }
 
+GM_registerMenuCommand('Clear Data', clear)
+
 function update() {
   const min = GM_getValue('filesize.min') as any
   const max = GM_getValue('filesize.max') as any
+
+  console.log({ min, max })
 
   Array.from(trs).forEach((tr) => {
     if (filterFileSize(tr, { min, max })) {
@@ -50,4 +59,10 @@ function createFileSizeInput(key: 'min' | 'max') {
     update()
   })
   return input
+}
+
+function clear() {
+  GM_deleteValue('filesize.min')
+  GM_deleteValue('filesize.max')
+  update()
 }
