@@ -17,16 +17,10 @@ if (container) {
   label.textContent = 'File Size:'
   root.appendChild(label)
 
-  const minInput = document.createElement('input')
-  minInput.type = 'number'
-  minInput.placeholder = 'min'
-  minInput.value = GM_getValue('filesize.min', '')
+  const minInput = createFileSizeInput('min')
   root.appendChild(minInput)
 
-  const maxInput = document.createElement('input')
-  maxInput.type = 'number'
-  maxInput.placeholder = 'max'
-  maxInput.value = GM_getValue('filesize.max', '')
+  const maxInput = createFileSizeInput('max')
   root.appendChild(maxInput)
 
   const onInput = () => {
@@ -50,4 +44,12 @@ if (container) {
 
   // Initial filter on load
   onInput()
+}
+
+function createFileSizeInput(key: 'min' | 'max') {
+  const input = document.createElement('input')
+  input.type = 'number'
+  input.placeholder = key
+  input.value = GM_getValue(`filesize.${key}`, '')
+  return input
 }
