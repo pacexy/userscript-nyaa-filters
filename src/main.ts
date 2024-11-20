@@ -55,7 +55,8 @@ function createFileSizeInput(key: 'min' | 'max') {
   input.placeholder = key
   input.value = GM_getValue(`filesize.${key}`)
   input.addEventListener('input', () => {
-    GM_setValue(`filesize.${key}`, parseFloat(input.value))
+    const value = input.value ? parseFloat(input.value) : undefined
+    GM_setValue(`filesize.${key}`, value)
     update()
   })
   return input
