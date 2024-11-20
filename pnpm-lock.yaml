@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      anitomy:
+        specifier: ^0.0.35
+        version: 0.0.35
     devDependencies:
       '@pacexy/eslint-config':
         specifier: ^0.3.0
@@ -526,6 +530,10 @@ packages:
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
+
+  anitomy@0.0.35:
+    resolution: {integrity: sha512-lwTWQAWKrgvQhlTssPDqz+1BVYJ7EqNVo7OTsqyND0SoVehOgdIdDZKeaAXI+D8z7xAV/fABWBZsVpbURF1MBg==}
+    engines: {node: '>=v18.16.0'}
 
   ansi-escapes@7.0.0:
     resolution: {integrity: sha512-GdYO7a61mR0fOlAsvC9/rIHf7L96sBc6dEWzeOu+KAea5bZyQRPIpojrVoI4AXGJS/ycu/fBTdLrUkA4ODrvjw==}
@@ -2657,6 +2665,8 @@ snapshots:
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
+
+  anitomy@0.0.35: {}
 
   ansi-escapes@7.0.0:
     dependencies:

@@ -28,6 +28,9 @@
     "*.{js,jsx,ts,tsx}": "eslint --fix"
   },
   "prettier": "@pacexy/prettier-config",
+  "dependencies": {
+    "anitomy": "^0.0.35"
+  },
   "devDependencies": {
     "@pacexy/eslint-config": "^0.3.0",
     "@pacexy/prettier-config": "^0.4.1",

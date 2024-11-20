@@ -11,7 +11,7 @@ export default defineConfig({
         description: '[description]',
         icon: 'https://nyaa.si/static/favicon.png',
         namespace: 'npm/vite-plugin-monkey',
-        match: ['https://www.google.com/'],
+        match: ['https://nyaa.si/*'],
       },
       server: {
         open: false,
