@@ -1,3 +1,4 @@
+import { GM_getValue, GM_setValue } from '$'
 import { filterFileSize } from './filters/file-size'
 import './main.css'
 
@@ -19,16 +20,21 @@ if (container) {
   const minInput = document.createElement('input')
   minInput.type = 'number'
   minInput.placeholder = 'min'
+  minInput.value = GM_getValue('filesize.min', '')
   root.appendChild(minInput)
 
   const maxInput = document.createElement('input')
   maxInput.type = 'number'
   maxInput.placeholder = 'max'
+  maxInput.value = GM_getValue('filesize.max', '')
   root.appendChild(maxInput)
 
   const onInput = () => {
     const min = parseFloat(minInput.value) || undefined
     const max = parseFloat(maxInput.value) || undefined
+
+    GM_setValue('filesize.min', minInput.value)
+    GM_setValue('filesize.max', maxInput.value)
 
     Array.from(trs)
       .filter((tr) => !filterFileSize(tr, { min, max }))
@@ -39,4 +45,7 @@ if (container) {
 
   minInput.addEventListener('input', onInput)
   maxInput.addEventListener('input', onInput)
+
+  // Initial filter on load
+  onInput()
 }
