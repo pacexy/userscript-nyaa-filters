@@ -1,4 +1,4 @@
-import { filterSize } from './filters/size'
+import { filterFileSize } from './filters/file-size'
 import './main.css'
 
 const trs = document.querySelectorAll<HTMLTableRowElement>(
@@ -27,11 +27,11 @@ if (container) {
   root.appendChild(maxInput)
 
   const onInput = () => {
-    const minSize = parseFloat(minInput.value) || undefined
-    const maxSize = parseFloat(maxInput.value) || undefined
+    const min = parseFloat(minInput.value) || undefined
+    const max = parseFloat(maxInput.value) || undefined
 
     Array.from(trs)
-      .filter((tr) => !filterSize(tr, { min: minSize, max: maxSize }))
+      .filter((tr) => !filterFileSize(tr, { min, max }))
       .forEach((tr) => {
         tr.style.opacity = '0.5'
       })
