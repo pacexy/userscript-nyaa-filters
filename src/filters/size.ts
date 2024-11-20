@@ -9,20 +9,18 @@ interface Options {
   max?: number
 }
 
-export function filterSize(trs: HTMLTableRowElement[], options: Options) {
-  return trs.filter((tr) => {
-    const td = tr.querySelector<HTMLTableCellElement>('td:nth-child(4)')
-    if (!td) return
-    const size = td.textContent?.trim()
-    if (!size) return
+export function filterSize(tr: HTMLTableRowElement, options: Options) {
+  const td = tr.querySelector<HTMLTableCellElement>('td:nth-child(4)')
+  if (!td) return
+  const size = td.textContent?.trim()
+  if (!size) return
 
-    const parsedSize = parseSize(size)
+  const parsedSize = parseSize(size)
 
-    return (
-      (options.min === undefined || parsedSize >= options.min) &&
-      (options.max === undefined || parsedSize <= options.max)
-    )
-  })
+  return (
+    (options.min === undefined || parsedSize >= options.min) &&
+    (options.max === undefined || parsedSize <= options.max)
+  )
 }
 
 /**
