@@ -36,11 +36,13 @@ if (container) {
     GM_setValue('filesize.min', minInput.value)
     GM_setValue('filesize.max', maxInput.value)
 
-    Array.from(trs)
-      .filter((tr) => !filterFileSize(tr, { min, max }))
-      .forEach((tr) => {
+    Array.from(trs).forEach((tr) => {
+      if (filterFileSize(tr, { min, max })) {
+        tr.style.opacity = ''
+      } else {
         tr.style.opacity = '0.5'
-      })
+      }
+    })
   }
 
   minInput.addEventListener('input', onInput)
