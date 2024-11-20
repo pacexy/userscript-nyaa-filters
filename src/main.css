@@ -3,6 +3,10 @@
 }
 
 #nyaa-filters input {
-  width: 80px;
+  width: 60px;
   margin-left: 10px;
+}
+
+#nyaa-filters input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }

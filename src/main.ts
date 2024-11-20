@@ -19,7 +19,7 @@ if (container) {
   container.prepend(root)
 
   const label = document.createElement('label')
-  label.textContent = 'File Size:'
+  label.textContent = 'File Size (MB):'
   root.appendChild(label)
 
   const minInput = createFileSizeInput('min')
