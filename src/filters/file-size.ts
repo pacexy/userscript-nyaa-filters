@@ -1,12 +1,14 @@
+export type FileSize = number | undefined
+
 interface Options {
   /**
    * Minimum file size in MB.
    */
-  min?: number
+  min?: FileSize
   /**
    * Maximum file size in MB.
    */
-  max?: number
+  max?: FileSize
 }
 
 export function filterFileSize(tr: HTMLTableRowElement, options: Options) {

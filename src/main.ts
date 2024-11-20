@@ -4,7 +4,7 @@ import {
   GM_registerMenuCommand,
   GM_setValue,
 } from '$'
-import { filterFileSize } from './filters/file-size'
+import { filterFileSize, type FileSize } from './filters/file-size'
 import './main.css'
 
 const trs = document.querySelectorAll<HTMLTableRowElement>(
@@ -35,8 +35,8 @@ if (container) {
 GM_registerMenuCommand('Clear Data', clear)
 
 function update() {
-  const min = GM_getValue('filesize.min') as any
-  const max = GM_getValue('filesize.max') as any
+  const min = GM_getValue<FileSize>('filesize.min')
+  const max = GM_getValue<FileSize>('filesize.max')
 
   console.log({ min, max })
 
@@ -53,7 +53,8 @@ function createFileSizeInput(key: 'min' | 'max') {
   const input = document.createElement('input')
   input.type = 'number'
   input.placeholder = key
-  input.value = GM_getValue(`filesize.${key}`)
+  // @ts-expect-error - Both `number` and `undefined` is fine for number input
+  input.value = GM_getValue<FileSize>(`filesize.${key}`)
   input.addEventListener('input', () => {
     const value = input.value ? parseFloat(input.value) : undefined
     GM_setValue(`filesize.${key}`, value)
