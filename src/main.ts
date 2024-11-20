@@ -23,33 +23,31 @@ if (container) {
   const maxInput = createFileSizeInput('max')
   root.appendChild(maxInput)
 
-  const onInput = () => {
-    const min = parseFloat(minInput.value) || undefined
-    const max = parseFloat(maxInput.value) || undefined
+  // init update on load
+  update()
+}
 
-    GM_setValue('filesize.min', minInput.value)
-    GM_setValue('filesize.max', maxInput.value)
+function update() {
+  const min = GM_getValue('filesize.min') as any
+  const max = GM_getValue('filesize.max') as any
 
-    Array.from(trs).forEach((tr) => {
-      if (filterFileSize(tr, { min, max })) {
-        tr.style.opacity = ''
-      } else {
-        tr.style.opacity = '0.5'
-      }
-    })
-  }
-
-  minInput.addEventListener('input', onInput)
-  maxInput.addEventListener('input', onInput)
-
-  // Initial filter on load
-  onInput()
+  Array.from(trs).forEach((tr) => {
+    if (filterFileSize(tr, { min, max })) {
+      tr.style.opacity = ''
+    } else {
+      tr.style.opacity = '0.5'
+    }
+  })
 }
 
 function createFileSizeInput(key: 'min' | 'max') {
   const input = document.createElement('input')
   input.type = 'number'
   input.placeholder = key
-  input.value = GM_getValue(`filesize.${key}`, '')
+  input.value = GM_getValue(`filesize.${key}`)
+  input.addEventListener('input', () => {
+    GM_setValue(`filesize.${key}`, parseFloat(input.value))
+    update()
+  })
   return input
 }
