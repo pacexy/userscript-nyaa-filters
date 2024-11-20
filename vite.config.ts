@@ -9,7 +9,7 @@ export default defineConfig({
       userscript: {
         name: 'Nyaa Filters',
         description: '[description]',
-        icon: 'https://vitejs.dev/logo.svg',
+        icon: 'https://nyaa.si/static/favicon.png',
         namespace: 'npm/vite-plugin-monkey',
         match: ['https://www.google.com/'],
       },
