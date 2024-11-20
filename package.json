@@ -1,0 +1,44 @@
+{
+  "name": "userscript-nyaa-filters",
+  "version": "0.0.0",
+  "private": true,
+  "description": "[description]",
+  "homepage": "https://github.com/pacexy/userscript-nyaa-filters#readme",
+  "bugs": "https://github.com/pacexy/userscript-nyaa-filters/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pacexy/userscript-nyaa-filters.git"
+  },
+  "license": "MIT",
+  "author": "pacexy <pacexy@gmail.com>",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "format": "prettier --write .",
+    "prepare": "simple-git-hooks",
+    "preview": "vite preview",
+    "release": "bumpp package.json"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,mdx,css,json,yml,yaml}": "prettier --write",
+    "*.{js,jsx,ts,tsx}": "eslint --fix"
+  },
+  "prettier": "@pacexy/prettier-config",
+  "devDependencies": {
+    "@pacexy/eslint-config": "^0.3.0",
+    "@pacexy/prettier-config": "^0.4.1",
+    "bumpp": "^9.8.1",
+    "eslint": "^9.15.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vite-plugin-monkey": "^4.0.6"
+  },
+  "packageManager": "pnpm@9.14.1"
+}
