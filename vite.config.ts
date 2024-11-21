@@ -8,7 +8,7 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         name: 'Nyaa Filters',
-        description: '[description]',
+        description: 'Add custom filters for nyaa.si',
         icon: 'https://nyaa.si/static/favicon.png',
         namespace: 'npm/vite-plugin-monkey',
         match: ['https://nyaa.si/*'],

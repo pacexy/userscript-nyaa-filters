@@ -2,7 +2,7 @@
   "name": "userscript-nyaa-filters",
   "version": "0.0.0",
   "private": true,
-  "description": "[description]",
+  "description": "Add custom filters for nyaa.si",
   "homepage": "https://github.com/pacexy/userscript-nyaa-filters#readme",
   "bugs": "https://github.com/pacexy/userscript-nyaa-filters/issues",
   "repository": {
