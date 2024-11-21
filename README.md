@@ -6,6 +6,10 @@ Add custom filters for nyaa.si
 
 ![screenshot](./screenshot.webp)
 
+## Features
+
+- File size filter
+
 ## License
 
 MIT
