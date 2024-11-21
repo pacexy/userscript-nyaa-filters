@@ -38,7 +38,7 @@ function update() {
   const min = GM_getValue<FileSize>('filesize.min')
   const max = GM_getValue<FileSize>('filesize.max')
 
-  console.log({ min, max })
+  // console.log({ min, max })
 
   Array.from(trs).forEach((tr) => {
     if (filterFileSize(tr, { min, max })) {
